@@ -1,0 +1,148 @@
+{
+  "name": "kapalishwar-astro-starter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^4.10.0"
+  }
+}
+import { defineConfig } from 'astro/config';
+
+export default defineConfig({
+  site: 'https://kapalishwar.com',
+});
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+node_modules
+dist
+.cache
+.DS_Store
+
+# Kapalishwar — Astro Starter
+
+A tiny Tamil-style "temple of text" starter.
+
+## Develop
+```bash
+npm install
+npm run dev
+
+npm run build
+
+---
+
+## Pages (inside `src/pages/`)
+
+You’ll need to create a folder called `src/pages` in your repo, then add these files:
+
+---
+
+### 6. `src/pages/index.astro`
+```astro
+---
+const tiers = [1,2,3,4,5,6,7];
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kapalishwar — Temple of Text</title>
+    <style>
+      body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.6;margin:0}
+      header,main{max-width:860px;margin:0 auto;padding:2rem}
+      nav a{margin-right:1rem}
+      .tiers a{display:inline-block;margin:0.25rem 0.5rem}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>kapalishwar.com</h1>
+      <p>A small Tamil-style temple of text. Gateway → Sanctum → Halls → Tiers.</p>
+      <nav>
+        <a href="/sanctum">Sanctum</a>
+        <a href="/reflections">Reflections</a>
+        <a href="/glossary">Glossary</a>
+      </nav>
+    </header>
+    <main>
+      <h2>Gopura Tiers</h2>
+      <p class="tiers">
+        {tiers.map(n => (<a href={`/tier/${n}/`}>Tier {n}</a>))}
+      </p>
+      <p>This is a starter. Replace copy with your own writing.</p>
+    </main>
+  </body>
+</html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sanctum — Kapalishwar</title>
+    <style>
+      body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.6;max-width:860px;margin:0 auto;padding:2rem}
+    </style>
+  </head>
+  <body>
+    <h1>Sanctum</h1>
+    <p>Place 3–5 core Codex essays here. This page is your <em>garbha gṛha</em>.</p>
+  </body>
+</html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reflections — Kapalishwar</title>
+    <style>
+      body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.6;max-width:860px;margin:0 auto;padding:2rem}
+    </style>
+  </head>
+  <body>
+    <h1>Reflections</h1>
+    <p>Short notes, bilingual fragments, dream entries — your <em>ardha-mandapa</em>.</p>
+  </body>
+</html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Glossary — Kapalishwar</title>
+    <style>
+      body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.6;max-width:860px;margin:0 auto;padding:2rem}
+    </style>
+  </head>
+  <body>
+    <h1>Glossary</h1>
+    <p>Build your living lexicon here. Add links to essays and Codex entries.</p>
+  </body>
+</html>
+
+---
+const { n } = Astro.params;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tier {n} — Kapalishwar</title>
+    <style>
+      body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.6;max-width:860px;margin:0 auto;padding:2rem}
+    </style>
+  </head>
+  <body>
+    <h1>Tier {n}</h1>
+    <p>This tier is an empty niche awaiting carving.</p>
+    <p><a href="/">← Back to Gateway</a></p>
+  </body>
+</html>
